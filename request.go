@@ -91,6 +91,8 @@ func (r *Requester) Post(ctx context.Context, endpoint string, payload io.Reader
 	}
 	ar.SetHeader("Content-Type", "application/x-www-form-urlencoded")
 	ar.Suffix = ""
+
+	fmt.Printf("Post, endpoint:%v, query:%v\n", endpoint, querystring)
 	return r.Do(ctx, ar, &responseStruct, querystring)
 }
 
@@ -117,6 +119,8 @@ func (r *Requester) GetJSON(ctx context.Context, endpoint string, responseStruct
 	ar := NewAPIRequest("GET", endpoint, nil)
 	ar.SetHeader("Content-Type", "application/json")
 	ar.Suffix = "api/json"
+
+	fmt.Printf("GetJSON, endpoint:%v, query:%v\n", endpoint, query)
 	return r.Do(ctx, ar, &responseStruct, query)
 }
 
