@@ -1,4 +1,4 @@
-module gojenkins
+module github.com/chenniannian90/gojenkins
 
 go 1.17
 
